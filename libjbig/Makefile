@@ -2,10 +2,10 @@
 # $Id: Makefile 1285 2008-08-18 13:36:45Z mgk25 $
 
 # Select an ANSI/ISO C compiler here, GNU gcc is recommended
-CC = gcc
+CC = /usr/vac/bin/xlc_r
 
 # Options for the compiler: A high optimization level is suggested
-CFLAGS = -g -O -Wall -ansi -pedantic # --coverage
+CFLAGS = -O -I/opt/freeware/include
 
 all: libjbig.a tstcodec tstcodec85
 

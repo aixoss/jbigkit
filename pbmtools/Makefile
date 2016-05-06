@@ -7,22 +7,24 @@ CC = gcc
 # Options for the compiler
 CFLAGS = -g -Wall -ansi -pedantic -I../libjbig # --coverage
 
+LDFLAGS = -Wl,-blibpath:/opt/freeware/lib:/usr/vac/lib:/usr/lib:/lib
+
 .SUFFIXES: .1 .5 .txt $(SUFFIXES)
 
 all: pbmtojbg jbgtopbm pbmtojbg85 jbgtopbm85 \
 	pbmtojbg.txt jbgtopbm.txt pbm.txt pgm.txt
 
 pbmtojbg: pbmtojbg.o ../libjbig/libjbig.a
-	$(CC) $(CFLAGS) -o pbmtojbg pbmtojbg.o -L../libjbig -ljbig
+	$(CC) $(CFLAGS) -o pbmtojbg pbmtojbg.o $(LDFLAGS) -L../libjbig -ljbig
 
 jbgtopbm: jbgtopbm.o ../libjbig/libjbig.a
-	$(CC) $(CFLAGS) -o jbgtopbm jbgtopbm.o -L../libjbig -ljbig
+	$(CC) $(CFLAGS) -o jbgtopbm jbgtopbm.o $(LDFLAGS) -L../libjbig -ljbig
 
 pbmtojbg85: pbmtojbg85.o ../libjbig/libjbig85.a
-	$(CC) $(CFLAGS) -o pbmtojbg85 pbmtojbg85.o -L../libjbig -ljbig85
+	$(CC) $(CFLAGS) -o pbmtojbg85 pbmtojbg85.o $(LDFLAGS) -L../libjbig -ljbig85
 
 jbgtopbm85: jbgtopbm85.o ../libjbig/libjbig85.a
-	$(CC) $(CFLAGS) -o jbgtopbm85 jbgtopbm85.o -L../libjbig -ljbig85
+	$(CC) $(CFLAGS) -o jbgtopbm85 jbgtopbm85.o $(LDFLAGS) -L../libjbig -ljbig85
 
 jbgtopbm.o: jbgtopbm.c ../libjbig/jbig.h
 pbmtojbg.o: pbmtojbg.c ../libjbig/jbig.h

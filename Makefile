@@ -2,10 +2,10 @@
 # $Id: Makefile 1303 2008-08-30 20:16:20Z mgk25 $
 
 # Select an ANSI/ISO C compiler here, GNU gcc is recommended
-CC = gcc
+CC = /usr/vac/bin/xlc_r
 
 # Options for the compiler: A high optimization level is suggested
-CCFLAGS = -O2 -W
+CCFLAGS = -O -I/opt/freeware/include
 #CCFLAGS = -O -g -W -Wall -ansi -pedantic #-DDEBUG  # developer only
 
 CFLAGS = $(CCFLAGS) -I../libjbig
